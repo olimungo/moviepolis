@@ -1,0 +1,49 @@
+div.app-header {
+    grid-area: head;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    font-size: 2rem;
+    margin: 1rem;
+    padding: 2rem 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+    border-radius: 5px;
+    background-color: #282828;
+}
+
+div.app-header .brand {
+    display: flex;
+    align-items: center;
+}
+
+div.app-header .icon-brand {
+    font-size: 3rem;
+}
+
+div.app-header .icon-search {
+    font-size: 1rem;
+    border: solid 1px orange;
+    border-radius: .5rem;
+    padding: .4rem;
+}
+
+div.app-header .spacer {
+    margin-left: .8rem;
+}
+
+div.app-header .search {
+    display: flex;
+    align-items: center;
+}
+
+div.app-header input {
+    border-radius: 2rem;
+    height: 1.5rem;
+    width: 15rem;
+    border: solid 1px orange;
+    background-color: #fedecc;
+    font-size: 1rem;
+    padding: 0 .8rem;
+    outline: none;
+}
