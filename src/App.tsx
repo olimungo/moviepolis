@@ -1,4 +1,5 @@
 import './App.css';
+import * as React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -6,16 +7,24 @@ import {
   Redirect
 } from 'react-router-dom';
 import { AppHeader, AppFooter } from './common';
-import { GenresList } from './genres';
+import { MoviesList } from './movies';
+import { searchMovies } from './services'
 
 function App() {
-  const onSearch = () => {
-    console.log('onSearch...');
-  }
+  const [queryString, setQueryString] = React.useState('');
+  const [moviesList, setMoviesList] = React.useState([]);
+
+  React.useEffect(() => {
+    if (queryString) {
+      searchMovies(queryString).then(reply => setMoviesList(reply.results));
+    }
+  }, [queryString]);
+
+  const handleSearch = (value: string) => setQueryString(value);
 
   return (
     <div className='App'>
-      <AppHeader searchItems='toto' onSearch={onSearch} />
+      <AppHeader onSearch={handleSearch} />
 
       <div className='mainbody'>
         <Router>
@@ -24,7 +33,7 @@ function App() {
               HOME
             </Route>
             <Route path='/genres'>
-              <GenresList text="LIST GENRES" />
+              <MoviesList movies={moviesList} />
             </Route>
             <Route path='/about'>
               ABOUT

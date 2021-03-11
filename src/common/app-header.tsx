@@ -3,36 +3,39 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm, faSearch } from '@fortawesome/free-solid-svg-icons'
 
-export type Props = { searchItems?: string, onSearch?: any };
+export type Props = { onSearch: any };
 
-export default class AppHeader extends React.Component<Props> {
-  onChange() {
-    console.log('onChange');
-  }
+export default function AppHeader(props: Props) {
+  const [queryString, setQueryString] = React.useState('');
 
-  render() {
-    const { searchItems, onSearch } = this.props;
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setQueryString(event.currentTarget.value);
 
-    return (
-      <div className='app-header'>
-        <div className='brand'>
-          <FontAwesomeIcon className='icon-brand' icon={faFilm} />
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
 
-          <div className='spacer'></div>
+    const { onSearch } = props;
+    onSearch(queryString);
+  };
 
-          <div>
-            Moviepolis
+  return (
+    <div className="app-header">
+      <div className="brand">
+        <FontAwesomeIcon className="icon-brand" icon={faFilm} />
+
+        <div className="spacer"></div>
+
+        <div>
+          Moviepolis
           </div>
-        </div>
+      </div>
 
-        <div className='search' onClick={onSearch}>
-          <input type="text" placeholder="Look for a movie or an actor" value={searchItems} onChange={this.onChange} />
+      <form className="search" onSubmit={handleSubmit}>
+        <input type="text" placeholder="Look for a movie or an actor" onChange={handleChange} />
 
-          <div className='spacer'></div>
+        <div className="spacer"></div>
 
-          <FontAwesomeIcon className='icon-search' icon={faSearch} />
-        </div>
-      </div>)
-      ;
-  }
-}
+        <FontAwesomeIcon className="icon-search" icon={faSearch} border onClick={handleSubmit} />
+      </form>
+    </div>
+  );
+};

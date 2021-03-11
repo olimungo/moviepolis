@@ -3,7 +3,6 @@ div.app-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1rem;
     font-size: 2rem;
     margin: 1rem;
     padding: 2rem 1rem;
@@ -23,9 +22,22 @@ div.app-header .icon-brand {
 
 div.app-header .icon-search {
     font-size: 1rem;
-    border: solid 1px orange;
-    border-radius: .5rem;
-    padding: .4rem;
+    border-radius: .2rem;
+    padding: .2rem .5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.72);
+    border-color: orange;
+    background-color: #333;
+}
+
+div.app-header .icon-search:hover {
+    background-color: #444;
+}
+
+div.app-header .icon-search:active {
+    background-color: #444;
+    position: relative;
+    left: .05rem;
+    top: .05rem;
 }
 
 div.app-header .spacer {
