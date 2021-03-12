@@ -7,28 +7,28 @@ div#root {
     width: 100%;
   }
   
-  div.App {
-    min-height: 25rem;
-    display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: auto;
-    grid-template-rows:
-      5rem auto 2rem;
-    grid-template-areas:
-      "head"
-      "mainbody"
-      "foot";
-  }
-  
-  div.mainbody {
-    grid-area: mainbody;
-    width: 30rem;
-    justify-self: center;
-  }
+div.App {
+  min-height: 25rem;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: auto;
+  grid-template-rows:
+    5rem auto 2rem;
+  grid-template-areas:
+    "head"
+    "mainbody"
+    "foot";
+}
 
-  @media screen and (min-width: 640px) {
-    html {
-        font-size: 20px;
-    }
+div.mainbody {
+  grid-area: mainbody;
+  width: 30rem;
+  justify-self: center;
+}
+
+@media screen and (min-width: 640px) {
+  html {
+      font-size: 20px;
+  }
 }

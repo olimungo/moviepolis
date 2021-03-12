@@ -16,30 +16,36 @@ function App() {
 
   React.useEffect(() => {
     if (queryString) {
-      searchMovies(queryString).then(reply => setMoviesList(reply.results));
+      searchMovies(queryString).then(results => setMoviesList(results));
     }
   }, [queryString]);
 
   const handleSearch = (value: string) => setQueryString(value);
 
   return (
+    // <div>
+    //   <div className="titi">
+    //     <div className="toto">fgsdgdfg</div>
+    //   </div>
+    //   <div className="titi">
+    //     <div className="toto">fgsdgdfg sfdgsdfgsdfg dsfgsdf gsd fg</div>
+    //   </div>
+    // </div>
+
     <div className='App'>
       <AppHeader onSearch={handleSearch} />
 
       <div className='mainbody'>
         <Router>
           <Switch>
-            <Route path='/home'>
-              HOME
-            </Route>
-            <Route path='/genres'>
+            <Route path='/movies'>
               <MoviesList movies={moviesList} />
             </Route>
             <Route path='/about'>
               ABOUT
             </Route>
             <Route path='/'>
-              <Redirect to="/genres" />
+              <Redirect to="/movies" />
             </Route>
           </Switch>
         </Router>

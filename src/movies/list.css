@@ -10,7 +10,11 @@
     background-color: #282828;
     list-style: none;
     font-size: 1.rem;
-    width: 500px;
+    width: 25rem;
+}
+
+.movies-list .title-container {
+    display: flex;
 }
 
 .movies-list .title {
@@ -21,10 +25,14 @@
     background-color: rgba(0,0,0,0.30);
     padding: .2rem .6rem;
     border-radius: .2rem;
+    max-width: 22rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .movies-list .fake-image {
-    height: 13rem;
+    height: 15rem;
 }
 
 .movies-list .image {
@@ -34,7 +42,7 @@
 
 .movies-list .overview {
     font-size: .7rem;
-    color: rgb(204, 133, 0);
+    color: antiquewhite;
     font-style: italic;
     position: relative;
     top: -.8rem;

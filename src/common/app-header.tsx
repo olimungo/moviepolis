@@ -3,10 +3,16 @@ import * as React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm, faSearch } from '@fortawesome/free-solid-svg-icons'
 
-export type Props = { onSearch: any };
+export type Props = { queryString?: string, onSearch: Function };
 
 export default function AppHeader(props: Props) {
   const [queryString, setQueryString] = React.useState('');
+
+  React.useEffect(() => {
+    if (props.queryString) {
+      setQueryString(props.queryString)
+    }
+  }, [props.queryString]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setQueryString(event.currentTarget.value);
 
@@ -30,7 +36,7 @@ export default function AppHeader(props: Props) {
       </div>
 
       <form className="search" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Look for a movie or an actor" onChange={handleChange} />
+        <input type="text" placeholder="Look for a movie or an actor" onChange={handleChange} value={queryString} />
 
         <div className="spacer"></div>
 

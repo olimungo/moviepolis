@@ -10,8 +10,6 @@ export default function List(props: Props) {
     React.useEffect(() => {
         if (movies) {
             setMoviesList(movies);
-
-            console.log(movies);
         }
     }, [movies]);
 
@@ -20,11 +18,13 @@ export default function List(props: Props) {
             <li key={movie.id}>
                 {
                     movie.backdrop_path
-                        ? <img className="image" src={"https://image.tmdb.org/t/p/w500/" + movie.backdrop_path} width="500" alt="" />
+                        ? <img className="image" src={"https://image.tmdb.org/t/p/w500/" + movie.backdrop_path} alt="" />
                         : <div className="fake-image"></div>
                 }
 
-                <label className="title">{movie.original_title}</label>
+                <div className="title-container">
+                    <span className="title" title={movie.original_title}>{movie.original_title}</span>
+                </div>
 
                 <div className="overview">{movie.overview}</div>
             </li>
