@@ -13,26 +13,38 @@
     width: 25rem;
 }
 
+.movies-list li:hover {
+    position: relative;
+    top: -0.05rem;
+    left: -0.05rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
+
+.movies-list li:active {
+    position: initial;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.18);
+}
+
 .movies-list .title-container {
     display: flex;
 }
 
 .movies-list .title {
     position: relative;
-    top: -13rem;
+    top: -4rem;
     color: antiquewhite;
     left: 1rem;
     background-color: rgba(0,0,0,0.30);
     padding: .2rem .6rem;
     border-radius: .2rem;
-    max-width: 22rem;
+    max-width: 20rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
 
 .movies-list .fake-image {
-    height: 15rem;
+    height: 5rem;
 }
 
 .movies-list .image {

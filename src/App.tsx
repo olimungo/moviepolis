@@ -1,54 +1,34 @@
 import './App.css';
-import * as React from 'react';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  useHistory
 } from 'react-router-dom';
 import { AppHeader, AppFooter } from './common';
-import { MoviesList } from './movies';
-import { searchMovies } from './services'
+import { MoviesList, MovieDetail } from './movies';
+import { Quote } from './quotes';
 
 function App() {
-  const [queryString, setQueryString] = React.useState('');
-  const [moviesList, setMoviesList] = React.useState([]);
-
-  React.useEffect(() => {
-    if (queryString) {
-      searchMovies(queryString).then(results => setMoviesList(results));
-    }
-  }, [queryString]);
-
-  const handleSearch = (value: string) => setQueryString(value);
+  const history = useHistory();
 
   return (
-    // <div>
-    //   <div className="titi">
-    //     <div className="toto">fgsdgdfg</div>
-    //   </div>
-    //   <div className="titi">
-    //     <div className="toto">fgsdgdfg sfdgsdfgsdfg dsfgsdf gsd fg</div>
-    //   </div>
-    // </div>
-
     <div className='App'>
-      <AppHeader onSearch={handleSearch} />
+      <AppHeader onSearch={(value: string) => history.push(`/movies?search=${value}`)} />
 
       <div className='mainbody'>
-        <Router>
-          <Switch>
-            <Route path='/movies'>
-              <MoviesList movies={moviesList} />
-            </Route>
-            <Route path='/about'>
-              ABOUT
-            </Route>
-            <Route path='/'>
-              <Redirect to="/movies" />
-            </Route>
-          </Switch>
-        </Router>
+        <Switch>
+          <Route path='/movies'>
+            <MoviesList onMovieSelected={(movieId: string) => history.push(`/movie/${movieId}`)} />
+          </Route>
+          <Route path='/movie/:id'>
+            <MovieDetail />
+          </Route>
+          <Route path='/'>
+            <Quote />
+          </Route>
+        </Switch>
+
+        <div className="filler"></div>
       </div>
 
       <AppFooter text='FOOTER' />

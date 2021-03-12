@@ -1,1 +1,1 @@
-export { default as searchMovies } from './search-movies';
+export { searchMovies, getMovie } from './movies';

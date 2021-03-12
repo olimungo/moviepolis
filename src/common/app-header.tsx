@@ -36,7 +36,7 @@ export default function AppHeader(props: Props) {
       </div>
 
       <form className="search" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Look for a movie or an actor" onChange={handleChange} value={queryString} />
+        <input type="text" placeholder="Look for a movie..." onChange={handleChange} value={queryString} />
 
         <div className="spacer"></div>
 

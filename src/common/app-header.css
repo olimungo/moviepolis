@@ -1,14 +1,15 @@
 div.app-header {
-    grid-area: head;
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 2rem;
-    margin: 1rem;
-    padding: 2rem 1rem;
+    padding: .5rem 1rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.18);
-    border-radius: 5px;
     background-color: #282828;
+    left: 0;
+    right: 0;
+    z-index: 99;
 }
 
 div.app-header .brand {
@@ -53,8 +54,8 @@ div.app-header input {
     border-radius: 2rem;
     height: 1.5rem;
     width: 15rem;
-    border: solid 1px #84dd5e;
-    background-color: #fedecc;
+    border-style: unset;
+    background-color: antiquewhite;
     font-size: 1rem;
     padding: 0 .8rem;
     outline: none;

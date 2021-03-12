@@ -1,24 +1,40 @@
 import './list.css';
 import * as React from 'react';
+import { useLocation } from "react-router-dom";
+import { searchMovies } from '../services'
 
-export type Props = { movies: never[] };
+export type Movie = {
+    id: number,
+    poster_path: string,
+    original_title: string,
+    overview: string
+}
+
+export type Props = { onMovieSelected: Function };
+
+function useQuery() {
+    return new URLSearchParams(useLocation().search);
+}
 
 export default function List(props: Props) {
-    const [moviesList, setMoviesList] = React.useState([]);
-    const { movies } = props;
+    const query = useQuery();
+    const { onMovieSelected } = props;
+    const [moviesList, setMoviesList] = React.useState<Movie[]>([]);
+
+    const search = query.get('search');
 
     React.useEffect(() => {
-        if (movies) {
-            setMoviesList(movies);
+        if (search) {
+            searchMovies(search).then((results: Movie[]) => setMoviesList(results));
         }
-    }, [movies]);
+    }, [search]);
 
-    const renderMovie = (movie: any) => {
+    const renderMovie = (movie: Movie) => {
         return (
-            <li key={movie.id}>
+            <li key={movie.id} onClick={() => onMovieSelected(movie.id)}>
                 {
-                    movie.backdrop_path
-                        ? <img className="image" src={"https://image.tmdb.org/t/p/w500/" + movie.backdrop_path} alt="" />
+                    movie.poster_path
+                        ? <img className="image" src={"https://image.tmdb.org/t/p/w500/" + movie.poster_path} alt="" />
                         : <div className="fake-image"></div>
                 }
 
@@ -34,9 +50,8 @@ export default function List(props: Props) {
     return (
         <div className='movies-list'>
             <ul>
-                {moviesList.map((movie: any) => renderMovie(movie))}
+                {moviesList.map((movie: Movie) => renderMovie(movie))}
             </ul>
-
         </div>
     );
 }
