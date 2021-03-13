@@ -17,15 +17,28 @@ function useQuery() {
 }
 
 export default function List(props: Props) {
-    const query = useQuery();
+    const search = useQuery().get('search');
     const { onMovieSelected } = props;
     const [moviesList, setMoviesList] = React.useState<Movie[]>([]);
 
-    const search = query.get('search');
-
     React.useEffect(() => {
         if (search) {
-            searchMovies(search).then((results: Movie[]) => setMoviesList(results));
+            const storageSearch = window.localStorage.getItem('search') || '';
+
+            if (storageSearch === search) {
+                const storageMoviesList = window.localStorage.getItem('moviesList') || null;
+
+                if (storageMoviesList) {
+                    setMoviesList(JSON.parse(storageMoviesList));
+                }
+            } else {
+                searchMovies(search).then((results: Movie[]) => {
+                    setMoviesList(results);
+                    window.localStorage.setItem('moviesList', JSON.stringify(results));
+                    window.localStorage.setItem('search', search);
+                    window.scrollTo(0, 0);
+                });
+            }
         }
     }, [search]);
 

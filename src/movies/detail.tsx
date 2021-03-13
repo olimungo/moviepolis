@@ -1,11 +1,9 @@
 import './detail.css';
 import * as React from 'react';
-import {
-    useParams
-} from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { getMovie } from '../services'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInfoCircle } from '@fortawesome/free-solid-svg-icons'
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 
 export type Movie = {
     id: number,
@@ -18,7 +16,8 @@ const movieInit: Movie = {
 }
 
 export default function Detail() {
-    let { id } = useParams<{ id: string }>();
+    const history = useHistory();
+    const { id } = useParams<{ id: string }>();
     const [movie, setMovie] = React.useState<Movie>(movieInit);
 
     React.useEffect(() => {
@@ -37,6 +36,8 @@ export default function Detail() {
 
     return (
         <div className='movie'>
+            <FontAwesomeIcon className="icon-back" icon={faArrowCircleLeft} border onClick={() => history.goBack()} />
+
             {movie.original_title}
         </div>
     );

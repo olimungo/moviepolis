@@ -17,8 +17,18 @@ div.app-header .brand {
     align-items: center;
 }
 
-div.app-header .icon-brand {
+div.app-header Link {
+    color: #84dd5e;
+}
+
+div.app-header .brand-icon {
     font-size: 3rem;
+    color: #84dd5e;
+    cursor: pointer;
+}
+
+div.app-header .brand-name {
+    cursor: pointer;
 }
 
 div.app-header .icon-search {

@@ -1,11 +1,13 @@
 import './app-header.css';
 import * as React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilm, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { useHistory } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFilm, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 export type Props = { queryString?: string, onSearch: Function };
 
 export default function AppHeader(props: Props) {
+  const history = useHistory();
   const [queryString, setQueryString] = React.useState('');
 
   React.useEffect(() => {
@@ -13,8 +15,6 @@ export default function AppHeader(props: Props) {
       setQueryString(props.queryString)
     }
   }, [props.queryString]);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => setQueryString(event.currentTarget.value);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -26,17 +26,20 @@ export default function AppHeader(props: Props) {
   return (
     <div className="app-header">
       <div className="brand">
-        <FontAwesomeIcon className="icon-brand" icon={faFilm} />
+        <FontAwesomeIcon className="brand-icon" icon={faFilm} onClick={() => history.push('/')} />
 
         <div className="spacer"></div>
 
-        <div>
+        <div className="brand-name" onClick={_ => history.push('/')}>
           Moviepolis
-          </div>
+        </div>
       </div>
 
+
       <form className="search" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Look for a movie..." onChange={handleChange} value={queryString} />
+        <input type="text" placeholder="Look for a movie..."
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => setQueryString(event.currentTarget.value)}
+          value={queryString} />
 
         <div className="spacer"></div>
 

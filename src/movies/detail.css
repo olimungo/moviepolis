@@ -12,3 +12,21 @@
     font-size: 1.rem;
     width: 25rem;
 }
+
+.movie .icon-back {
+    position: fixed;
+    left: 1rem;
+    top: 4rem;
+    font-size: 2rem;
+    border: none;
+}
+
+.movie .icon-back:hover {
+    left: .95rem;
+    top: 3.95rem;
+}
+
+.movie .icon-back:active {
+    left: 1rem;
+    top: 4rem;
+}
