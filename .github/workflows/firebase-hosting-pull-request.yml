@@ -12,5 +12,6 @@ jobs:
       - name: Create The Movie Database API token (src/services/tmdb.json)
         run: |
           echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
+          cat src/services/tmdb.json
         env:
           tmdbApiToken: '${{ secrets.TMDB }}'
