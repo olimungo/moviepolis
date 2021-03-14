@@ -16,3 +16,11 @@ jobs:
         env:
           tmdbApiToken: '${{ secrets.TMDB }}'
       - run: npm ci && npm run build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MOVIEPOLIS_TEST }}'
+          channelId: live
+          projectId: moviepolis-test
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
