@@ -7,9 +7,11 @@ jobs:
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Set The Movie Database API token in src/services/tmdb.json
       - command: >
-        echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json && npm ci && npm run build
+          echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
+      - uses: actions/checkout@v2
+      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
