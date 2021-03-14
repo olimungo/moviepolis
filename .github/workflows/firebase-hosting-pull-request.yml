@@ -9,4 +9,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        run: npm ci
+      - name: Create The Movie Database API token (src/services/tmdb.json)
+        run: |
+          echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
