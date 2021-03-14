@@ -2,7 +2,7 @@
 # https://github.com/firebase/firebase-tools
 
 name: Build on Pull request
-'on': pull_request
+'on': [pull_request, push]
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
