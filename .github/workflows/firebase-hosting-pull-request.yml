@@ -7,7 +7,6 @@ jobs:
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
-      - name: Set The Movie Database API token in src/services/tmdb.json
       - run: |
           echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
       - uses: actions/checkout@v2
