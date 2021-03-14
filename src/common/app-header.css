@@ -58,12 +58,13 @@ div.app-header .spacer {
 div.app-header .search {
     display: flex;
     align-items: center;
+    margin-left: 1rem;
 }
 
 div.app-header input {
     border-radius: 2rem;
     height: 1.5rem;
-    width: 15rem;
+    width: 12rem;
     border-style: unset;
     background-color: antiquewhite;
     font-size: 1rem;

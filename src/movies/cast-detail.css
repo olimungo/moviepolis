@@ -1,10 +1,12 @@
 .cast-detail {
     margin-top: 1rem;
     padding-bottom: .3rem;
+    text-align: left;
 }
 
 .cast-detail .cast {
     font-weight: 600;
+    text-align: left;
 }
 
 .cast-detail ul {
@@ -13,9 +15,8 @@
 }
 
 .cast-detail li {
-    text-align: left;
     margin: .5rem .8rem;
     list-style: none;
     font-size: .8rem;
-    width: 23rem;
+    width: 16rem;
 }

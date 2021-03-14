@@ -44,23 +44,23 @@ export default function Detail() {
     }, [movie]);
 
     return (
-        <div className='detail'>
+        <div className="detail">
             <FontAwesomeIcon className="icon-back" icon={faArrowCircleLeft} onClick={() => history.goBack()} />
 
-            {
-                movie.backdrop_path
-                    ? <img className="image" src={"https://image.tmdb.org/t/p/w500/" + movie.backdrop_path} alt="" />
-                    : <div className="fake-image"></div>
-            }
+            <div className="card">
+                {
+                    movie.backdrop_path
+                        ? <img className="image" src={"https://image.tmdb.org/t/p/w500/" + movie.backdrop_path} alt="" />
+                        : <div className="fake-image"></div>
+                }
 
-            <div className="detail-info">
-                <div className="title">{movie.original_title}</div>
-                <div className="release-date">{releaseDate}</div>
+                <div className="detail-info">
+                    <div className="title">{movie.original_title}</div>
+                    <div className="release-date">{releaseDate}</div>
 
-                <CastDetail id={movie.id} />
+                    <CastDetail id={movie.id} />
+                </div>
             </div>
-
-
         </div>
     );
 }

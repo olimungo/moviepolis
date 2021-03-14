@@ -2,6 +2,14 @@
     margin: 5px;
 }
 
+.movies-list ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
 .movies-list li {
     text-align: left;
     margin: .8rem;
@@ -10,7 +18,7 @@
     background-color: #282828;
     list-style: none;
     font-size: 1.rem;
-    width: 25rem;
+    width: 20rem;
 }
 
 .movies-list li:hover {
@@ -50,6 +58,7 @@
 .movies-list .image {
     border-top-left-radius: .3rem;
     border-top-right-radius: .3rem;
+    width: 20rem;
 }
 
 .movies-list .overview {
