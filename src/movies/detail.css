@@ -1,8 +1,4 @@
-.movie {
-    margin: 5px;
-}
-
-.movie li {
+.detail {
     text-align: left;
     margin: .8rem;
     box-shadow: 0 2px 4px rgba(0,0,0,0.18);
@@ -11,21 +7,42 @@
     list-style: none;
     font-size: 1.rem;
     width: 25rem;
+    color: antiquewhite;
 }
 
-.movie .icon-back {
+.detail .icon-back {
     position: fixed;
     left: 1rem;
-    top: 4rem;
+    top: 5rem;
     font-size: 2rem;
+    color: #84dd5e;
 }
 
-.movie .icon-back:hover {
+.detail .icon-back:hover {
     left: .95rem;
-    top: 3.95rem;
+    top: 4.95rem;
 }
 
-.movie .icon-back:active {
+.detail .icon-back:active {
     left: 1rem;
-    top: 4rem;
+    top: 5rem;
+}
+
+.detail .image {
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+
+.detail .fake-image {
+    height: 5rem;
+}
+
+.detail .detail-info {
+    margin: 1rem;
+}
+
+.detail .release-date {
+    margin-top: .3rem;
+    font-size: .6rem;
+    color: #bceca9;
 }
