@@ -7,17 +7,6 @@ jobs:
   build_and_preview:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout repository
       - uses: actions/checkout@v2
       - run: npm ci
-      - run: |
-        echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
-      - uses: actions/checkout@v2
-      - run: npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_MOVIEPOLIS_647C7 }}'
-          tmdbApiToken: '${{ secrets.TMDB }}'
-          projectId: moviepolis-647c7
-        env:
-          FIREBASE_CLI_PREVIEWS: hostingchannels
