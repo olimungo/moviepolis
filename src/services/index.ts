@@ -1,1 +1,2 @@
-export { searchMovies, getMovie } from './movies';
+export * from './cast';
+export * from './movies';
