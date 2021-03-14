@@ -36,7 +36,7 @@ export default function Detail() {
 
     return (
         <div className='movie'>
-            <FontAwesomeIcon className="icon-back" icon={faArrowCircleLeft} border onClick={() => history.goBack()} />
+            <FontAwesomeIcon className="icon-back" icon={faArrowCircleLeft} onClick={() => history.goBack()} />
 
             {movie.original_title}
         </div>

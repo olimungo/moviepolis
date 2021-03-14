@@ -31,7 +31,7 @@ function App() {
         <div className="filler"></div>
       </div>
 
-      <AppFooter text='FOOTER' />
+      <AppFooter />
     </div>
   );
 }

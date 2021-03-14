@@ -1,15 +1,11 @@
 import './app-footer.css';
-import * as React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
-// export type Props = { text: string, children: React.ReactElement };
-export type Props = { text: string };
-
-export default class AppMenu extends React.Component<Props> {
-  render() {
-    const { text } = this.props;
-
-    return <div className='app-footer'>
-      {text}
-    </div>;
-  }
+export default function AppMenu() {
+  return (
+    <div className='app-footer'>
+      <FontAwesomeIcon className="icon-github" icon={faGithub} onClick={() => window.open('https://github.com/olimungo/moviepolis', '_blank')} />
+    </div>
+  );
 }
