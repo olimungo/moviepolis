@@ -10,7 +10,14 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Create The Movie Database API token (src/services/tmdb.json)
+        run: |
+          echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
+          cat src/services/tmdb.json
+        env:
+          tmdbApiToken: '${{ secrets.TMDB }}'
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
