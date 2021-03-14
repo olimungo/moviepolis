@@ -2,7 +2,9 @@
 # https://github.com/firebase/firebase-tools
 
 name: Build on push
-'on': push
+'on':
+  push:
+    branches-ignore: master
 jobs:
   build_and_preview:
     runs-on: ubuntu-latest
