@@ -6,7 +6,7 @@ name: Build on push
   push:
     branches-ignore: master
 jobs:
-  build_and_preview:
+  build_and_run_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
