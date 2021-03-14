@@ -17,4 +17,4 @@ jobs:
           cat src/services/tmdb.json
         env:
           tmdbApiToken: '${{ secrets.TMDB }}'
-      - run: npm ci && npm run build
+      - run: npm ci && npm test && npm run build
