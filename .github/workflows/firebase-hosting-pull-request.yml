@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set The Movie Database API token in src/services/tmdb.json
-      - command: >
+      - run: |
           echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
       - uses: actions/checkout@v2
       - run: npm ci && npm run build
