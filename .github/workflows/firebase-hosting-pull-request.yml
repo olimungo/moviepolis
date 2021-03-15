@@ -4,18 +4,18 @@
 name: Build on pull request and deploy to TEST
 'on': pull_request
 jobs:
-  build_and_preview:
+  build_and_deploy_to_test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Create The Movie Database API token (src/services/tmdb.json)
         run: |
-          echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
+          echo '{ "key": "'$tmdbApiToken'"}' > src/services/tmdb.json
           cat src/services/tmdb.json
         env:
           tmdbApiToken: '${{ secrets.TMDB }}'
-      - run: npm ci && npm run build
+      - run: npm ci && npm test && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

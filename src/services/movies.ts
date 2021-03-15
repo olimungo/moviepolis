@@ -7,6 +7,7 @@ export function searchMovies(queryString: string) {
 }
 
 export function getMovie(movieId: string) {
+    console.log('getMovie')
     return fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${tmdb.key}&language=en-US`)
         .then((value: Response) => value.json());
 }

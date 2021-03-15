@@ -6,15 +6,15 @@ name: Build on push
   push:
     branches-ignore: master
 jobs:
-  build_and_preview:
+  run_test_and_build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Create The Movie Database API token (src/services/tmdb.json)
         run: |
-          echo '{ "key": "'$tmdbApiToken'"}' >> src/services/tmdb.json
+          echo '{ "key": "'$tmdbApiToken'"}' > src/services/tmdb.json
           cat src/services/tmdb.json
         env:
           tmdbApiToken: '${{ secrets.TMDB }}'
-      - run: npm ci && npm run build
+      - run: npm ci && npm test && npm run build

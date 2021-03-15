@@ -26,24 +26,24 @@ export default function AppHeader(props: Props) {
   return (
     <div className="app-header">
       <div className="brand">
-        <FontAwesomeIcon className="brand-icon" icon={faFilm} onClick={() => history.push('/')} />
+        <FontAwesomeIcon data-testid="icon" className="brand-icon" icon={faFilm} onClick={() => history.push('/')} />
 
         <div className="spacer"></div>
 
-        <div className="brand-name" onClick={_ => history.push('/')}>
+        <div data-testid="brand" className="brand-name" onClick={_ => history.push('/')}>
           Moviepolis
         </div>
       </div>
 
 
       <form className="search" onSubmit={handleSubmit}>
-        <input type="text" placeholder="Look for a movie..."
+        <input data-testid="input" type="text" placeholder="Look for a movie..."
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => setQueryString(event.currentTarget.value)}
           value={queryString} />
 
         <div className="spacer"></div>
 
-        <FontAwesomeIcon className="icon-search" icon={faSearch} border onClick={handleSubmit} />
+        <FontAwesomeIcon data-testid="submit" className="icon-search" icon={faSearch} border onClick={handleSubmit} />
       </form>
     </div>
   );
