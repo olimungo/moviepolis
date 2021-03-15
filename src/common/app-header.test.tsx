@@ -29,7 +29,7 @@ test('It should contain a submit button', () => {
     expect(submit).toBeInTheDocument();
 });
 
-test('It should callback onSearch when Submit button is clicked', () => {
+test('It should call back onSearch when Submit button is clicked', () => {
     const handleSearch = jest.fn()
     render(<AppHeader onSearch={handleSearch} />);
 

@@ -15,7 +15,7 @@ jobs:
           cat src/services/tmdb.json
         env:
           tmdbApiToken: '${{ secrets.TMDB }}'
-      - run: npm ci && npm run build
+      - run: npm ci && npm test && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'

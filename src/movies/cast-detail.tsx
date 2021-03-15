@@ -22,14 +22,14 @@ export default function CastDetail(props: Props) {
 
     const renderCast = (cast: Cast) => {
         return (
-            <li key={cast.id}>
+            <li data-testid="li" key={cast.id}>
                 {cast.name} ({cast.character})
             </li>
         );
     }
 
     return (
-        <div className='cast-detail'>
+        <div data-testid="container" className='cast-detail'>
             <div className="cast">Cast</div>
             <ul>
                 {cast.map((cast: Cast) => renderCast(cast))}

@@ -32,6 +32,7 @@ export default function Detail() {
 
     React.useEffect(() => {
         if (id) {
+            console.log('useEffect')
             getMovie(id).then(results => setMovie(results));
         }
     }, [id]);
@@ -55,8 +56,8 @@ export default function Detail() {
                 }
 
                 <div className="detail-info">
-                    <div className="title">{movie.original_title}</div>
-                    <div className="release-date">{releaseDate}</div>
+                    <div data-testid="title" className="title">{movie.original_title}</div>
+                    <div data-testid="date" className="release-date">{releaseDate}</div>
 
                     <CastDetail id={movie.id} />
                 </div>

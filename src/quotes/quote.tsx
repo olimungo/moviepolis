@@ -3,7 +3,7 @@ const movieQuotes = require('movie-quotes');
 
 export default function Quote() {
     return (
-        <div className='quote'>
+        <div data-testid="container" className='quote'>
             {movieQuotes.random()}
         </div>
     );
