@@ -1,4 +1,4 @@
-# Moviepolis 
+# Moviepolis
 
 This project is a proof of concept for learning React. It reproduces a master/detail presentation by using movies' data from The Movie Database - TMDb (https://www.themoviedb.org/?language=fr)
 
