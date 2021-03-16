@@ -1,6 +1,6 @@
 # Moviepolis
 
-This project is a proof of concept for learning React. It reproduces a master/detail presentation by using movies' data from The Movie Database - TMDb (https://www.themoviedb.org/?language=fr)
+This project is a proof of concept for learning React. It reproduces a master/detail presentation by using movies' data from The Movie Database - TMDb (https://www.themoviedb.org)
 
 Firebase is used as hosting service and the app is automatically deployed when GitHub actions are trigerred (see folder .github/workflows).
 
@@ -16,7 +16,7 @@ On all actions, the tests are executed (npm test).
 If you'd like to test this project on your machine, you'll need to:
 
 - execute `npm ci` after cloning the project
-- create an account on https://www.themoviedb.org/?language=fr and get your API key
+- create an account on https://www.themoviedb.org and get your API key
 - create a file named `tmdb.json` in folder `services` having the following structure and replace `YOUR_KEY` with your API key:
 
       { "key": "YOUR_KEY" }
